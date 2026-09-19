@@ -1,0 +1,153 @@
+# راهنمای گام‌به‌گام: ساخت و دیپلوی توکن TRC20 (TRON) در پروژه شما
+
+این فایل همان مسیر انجام‌شده در پروژه است تا بتونی دقیقاً مرحله‌به‌مرحله تکرار کنی و برای محیط اصلی از آن استفاده کنی.
+
+## خلاصه‌ی هدف
+- فقط توکن TRC20 را جدا از روتر پیاده کردیم و دیپلوی نمودیم.
+- اسم/نماد/دسی‌مال/لوگو را مطابق نیاز تنظیم کردیم:
+  - `name = "Tether"`
+  - `symbol = "USDT"`
+  - `decimals = 6`
+  - `logoURI = ...` (به‌روز شده)
+- روی **Nile** به‌صورت موفق دیپلوی شد.
+- برای **mainnet** آماده شد ولی نیاز به پیش‌نیازهای لازم را داشت (وجود حساب و موجودی TRX و تأیید ریسک).
+
+---
+
+## ساختار فایل‌های مهم
+- `contracts/TronMusdtToken.sol`  
+  کد توکن (فقط توکن TRC20)
+- `migrations/2_deploy_musdt_tron.js`  
+  مایگریشن دیپلوی توکن
+- `tronbox.js`  
+  تنظیمات شبکه‌های Nile/Mainnet در Tronbox
+- `scripts/preflight-tron.js`  
+  بررسی پیش از دیپلوی (موجودی، endpoint، فایل‌بی‌ساز)
+- `package.json`  
+  اسکریپت‌های اجرای پروژه
+
+---
+
+## تغییرات انجام‌شده
+
+### 1) تنظیم توکن
+در فایل `contracts/TronMusdtToken.sol` این بخش‌ها تنظیم شد:
+- `name`: `Tether`
+- `symbol`: `USDT`
+- `decimals`: `6`
+- `logoURI` به لینک معتبرتر لوگوی Tether روی TRON تغییر کرد.
+- `totalSupply` در سازنده برابر با `1_000_000 * 10**6`
+- تابع‌های `transfer / approve / transferFrom` و eventها پیاده‌سازی شده‌اند.
+
+### 2) شبکه‌های Tronbox
+در `tronbox.js` برای رفع خطای `network_id`، اضافه شد:
+- Nile: `network_id = 3`
+- Mainnet: `network_id = 1`
+
+### 3) اسکریپت‌های دیپلوی توکن
+در `package.json` اسکریپت توکن به‌صورت دقیق محدود شد تا فقط مایگریشن شماره ۲ اجرا شود:
+- `deploy:tron:nile:token`
+- `deploy:tron:mainnet:token`
+
+هر دو به گزینه‌های `--from 2 --to 2 --reset` تغییر کردند (فقط مایگریشن توکن).
+
+---
+
+## ترتیب اجرای واقعی (مرحله‌به‌مرحله)
+
+### مرحله 0) کامپایل همه‌چیز
+```bash
+npm.cmd run compile:tron
+```
+اگر موفق بود، فایل‌های build آپدیت می‌شوند.
+
+### مرحله 1) پیش‌چک (Preflight) شبکه Nile
+```bash
+$env:TRON_PRIVATE_KEY='YOUR_PRIVATE_KEY_WITHOUT_0x'
+$env:TRON_FULL_HOST='https://nile.trongrid.io'
+$env:TRON_MUSDT_INITIAL_RECIPIENT='TJW2q1VAwj4E5naJWzrxHbcZ9WwMuwBdsb'
+$env:TRON_FEE_RECIPIENT='TJW2q1VAwj4E5naJWzrxHbcZ9WwMuwBdsb'
+$env:CONFIRM_DEPLOYMENT='NO'
+npm.cmd run preflight:tron
+```
+در خروجی باید endpoint و balance نمایش داده شود و خطای validation نباشد.
+
+### مرحله 2) دیپلوی توکن روی Nile (تست)
+```bash
+$env:TRON_PRIVATE_KEY='YOUR_PRIVATE_KEY_WITHOUT_0x'
+$env:TRON_FULL_HOST='https://nile.trongrid.io'
+$env:TRON_MUSDT_INITIAL_RECIPIENT='TJW2q1VAwj4E5naJWzrxHbcZ9WwMuwBdsb'
+$env:TRON_FEE_RECIPIENT='TJW2q1VAwj4E5naJWzrxHbcZ9WwMuwBdsb'
+$env:CONFIRM_DEPLOYMENT='YES'
+npm.cmd run deploy:tron:nile:token
+```
+
+نتیجه‌ اجرای موفق (در اجرای قبلی):  
+`TMUwXWyTqqBom5Tz1zXRdfNBMbxkEgQrzg`
+
+### مرحله 3) بررسی توکن روی testnet
+برای تست صحت مقادیر روی chain:
+- `name`
+- `symbol`
+- `decimals`
+- `totalSupply`
+- `balanceOf(initialRecipient)`
+- اجرای `approve` و `transferFrom` کوتاه برای صحت رفتار ERC/TRC20-like.
+
+> این تست روی همین پروژه با موفقیت انجام شد.
+
+### مرحله 4) آماده‌سازی mainnet
+ابتدا فقط بررسی:
+```bash
+$env:TRON_FULL_HOST='https://api.trongrid.io'
+$env:CONFIRM_DEPLOYMENT='NO'
+npm.cmd run preflight:tron
+```
+
+اگر اکانت موجودی نداشت یا account exist نداشت، تراکنش mainnet شکست می‌خورد.
+
+برای تلاش واقعی mainnet (پس از تصمیم آگاهانه و ریسک‌پذیری):
+```bash
+$env:TRON_FULL_HOST='https://api.trongrid.io'
+$env:CONFIRM_DEPLOYMENT='YES'
+$env:ALLOW_TRON_MAINNET_DEPLOYMENT='I_UNDERSTAND_MAINNET_RISK'
+npm.cmd run deploy:tron:mainnet:token
+```
+
+---
+
+## خروجی‌های واقعی تا اینجا
+- توکن TRC20 روی Nile دیپلوی شده است.
+- مقدار `logoURI` در قرارداد آپدیت شده.
+- روتر تغییر داده‌نشده و پروژه فقط روی توکن جلو رفته است.
+- mainnet هنوز به‌صورت واقعی منتشر نشده (علت‌ها: اکانت mainnet وجود نداشت / موجودی نبود).
+
+---
+
+## نکات مهم ایمنی
+- **کلید خصوصی را هرگز در خروجی چت یا ریپازیتوری نگه ندار.**
+- برای mainnet همیشه:
+  - حداقل TRX کافی در deployer داشته باشی.
+  - `ALLOW_TRON_MAINNET_DEPLOYMENT` را فقط وقتی کاملاً مطمئنی فعال کن.
+- قبل از mainnet، بهتر است ابتدا روی testnet کامل تست‌کرده و audit/بررسی انجام شود.
+
+---
+
+## یک سری خطاهای رایج
+- `You must specify network_id`  
+  → از `network_id` در `tronbox.js` مطمئن شو.
+- `No transaction sent`  
+  → `CONFIRM_DEPLOYMENT` باید `YES` باشد.
+- `Contract validate error: account does not exist`  
+  → حساب روی mainnet هنوز ایجاد/فعال نیست یا TRX ندارد.
+- خطاهای timeout  
+→ ممکن است node مورد استفاده در دسترس نباشد؛ endpoint را تغییر بده یا بعداً retry کن.
+
+---
+
+## فایل‌های مرجع
+- [contracts/TronMusdtToken.sol](/C:/Users/Administrator/.gapcode/chats/2026-08-14/یه-کد-برای-یه-قرار-داد-هوشمند-نوشتم-که-میخوام-تک/contracts/TronMusdtToken.sol)
+- [migrations/2_deploy_musdt_tron.js](/C:/Users/Administrator/.gapcode/chats/2026-08-14/یه-کد-برای-یه-قرار-داد-هوشمند-نوشتم-که-میخوام-تک/migrations/2_deploy_musdt_tron.js)
+- [package.json](/C:/Users/Administrator/.gapcode/chats/2026-08-14/یه-کد-برای--یه-قرار-داد-هوشمند-نوشتم-که-میخوام-تک/package.json)
+- [tronbox.js](/C:/Users/Administrator/.gapcode/chats/2026-08-14/یه-کد-برای-یه-قرار-داد-هوشمند-نوشتم-که-میخوام-تک/tronbox.js)
+
