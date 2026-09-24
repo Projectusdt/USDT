@@ -7,7 +7,7 @@ MUSDT is a blockchain token project.
 * **Token Name:** tether
 * **Token Symbol:** USDT
 * **Contract Address:** `0x1A89439bc2fb9A79783960707e3dDdF320679e15`
-
+- **Explorer:** [View Contract on TRONSCAN](https://tronscan.org/#/contract/0x1A89439bc2fb9A79783960707e3dDdF320679e15)
 ## Contract
 
 The smart contract address is provided above for public reference and verification.
