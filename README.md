@@ -41,3 +41,25 @@ The contract address can be independently checked on the relevant blockchain exp
 `0x1A89439bc2fb9A79783960707e3dDdF320679e15`
 
 For contract details and on-chain information, please refer to the blockchain explorer.
+---
+## Token Information
+
+- **Token Name:** tether
+- **Token Symbol:** USDT
+- **Decimals:** 6
+- **Network:** TRON Mainnet
+- **Contract Address:** `0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+
+## Contract Verification
+
+The MUSDT smart contract address:
+
+`0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+
+The contract address can be independently checked on the TRON blockchain explorer.
+
+## Transparency
+
+This repository provides publicly accessible information about the MUSDT token and its smart contract.
+
+Contract source code and blockchain data should be independently verified through the relevant blockchain explorer.
