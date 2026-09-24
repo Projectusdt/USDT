@@ -27,3 +27,11 @@ MUSDT is a blockchain-based token project focused on providing publicly accessib
 **Official Contract Address**
 
 `0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+
+## Contract Verification
+
+The MUSDT smart contract address:
+
+`0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+
+The contract address can be independently checked on the relevant blockchain explorer.
