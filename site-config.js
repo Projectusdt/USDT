@@ -9,9 +9,9 @@ window.SITE_CONFIG = {
     symbol: "USDT",
     decimals: "6",
     contract: "TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2",
-    network: "Pending official confirmation",
-    standard: "Pending official confirmation",
-    totalSupply: "Pending official confirmation",
+    network: "https://projectusdt.github.io/USDT/",
+    standard: "STANDARD TRC20 TOKENS",
+    totalSupply: "1000000e10*6",
     logo: "USDT.PNG",
     copyrightYear: "2026"
   },
@@ -31,25 +31,25 @@ window.SITE_CONFIG = {
   },
 
   team: [
-    { role: "PROJECT OWNER", name: "Name pending confirmation", details: "Profile and official contact", initials: "O" },
-    { role: "CHIEF EXECUTIVE OFFICER", name: "Name pending confirmation", details: "Profile and professional background", initials: "C" },
-    { role: "DEPUTY DIRECTOR", name: "Name pending confirmation", details: "Profile and responsibilities", initials: "D" },
+    { role: "PROJECT OWNER", name: "MR Mohammad Molaei", details: "Profile and official contact", initials: "O" },
+    { role: "CHIEF EXECUTIVE OFFICER", name: "MR Mohammad Molaei", details: "Profile and professional background", initials: "C" },
+    { role: "DEPUTY DIRECTOR", name: "MR Mohammad SHarifi", details: "Profile and responsibilities", initials: "D" },
     { role: "BOARD OF DIRECTORS", name: "Names pending confirmation", details: "Board member profiles", initials: "B" }
   ],
 
   support: {
-    email: "Pending official confirmation",
+    email: "MuSDT.Token@gmail.com",
     phone: "Pending official confirmation",
-    twitter: "Pending official confirmation",
-    facebook: "Pending official confirmation",
+    twitter: "MuSDTz64o",
+    facebook: "Musdt Token",
     telegram: "Pending official confirmation"
   },
 
   documents: {
-    whitepaper: "Pending publication",
+    whitepaper: "Github.com/Projectusdt/USDT/WITHPAPER.md",
     audit: "Pending publication",
     explorer: "Pending network confirmation",
-    revenuePolicy: "Pending publication"
+    revenuePolicy: "Github.com/Projectusdt/USDT/SECURITY.md"
   },
 
   roadmap: [
