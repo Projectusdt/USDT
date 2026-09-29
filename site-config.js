@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
     symbol: "USDT",
     decimals: "6",
     contract: "TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2",
-    network: "https://projectusdt.github.io/USDT/",
+    network: "TRON Mainnet(TronGrid)",
     standard: "STANDARD TRC20 TOKENS",
     totalSupply: "1000000e10*6",
     logo: "USDT.PNG",
@@ -34,12 +34,13 @@ window.SITE_CONFIG = {
     { role: "PROJECT OWNER", name: "MR Mohammad Molaei", details: "Profile and official contact", initials: "O" },
     { role: "CHIEF EXECUTIVE OFFICER", name: "MR Mohammad Molaei", details: "Profile and professional background", initials: "C" },
     { role: "DEPUTY DIRECTOR", name: "MR Mohammad SHarifi", details: "Profile and responsibilities", initials: "D" },
-    { role: "BOARD OF DIRECTORS", name: "Names pending confirmation", details: "Board member profiles", initials: "B" }
+    { role: "BOARD OF DIRECTORS", name: "'Mis L.Heydarian','MR A.Molaei','Mis T.Hosseini'", details: "Board member profiles", initials: "B" }
   ],
 
   support: {
     email: "MuSDT.Token@gmail.com",
-    phone: "Pending official confirmation",
+    phone: "8806228",
+    iphone: "+989912055661",
     twitter: "MuSDTz64o",
     facebook: "Musdt Token",
     telegram: "Pending official confirmation"
