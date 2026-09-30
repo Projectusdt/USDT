@@ -26,7 +26,7 @@ MUSDT is a blockchain-based token project focused on providing publicly accessib
 
 **Official Contract Address**
 
-`0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+`TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2`
 ---
 ## Contract Verification
 
