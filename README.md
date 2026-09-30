@@ -6,8 +6,8 @@ MUSDT is a blockchain token project.
 
 * **Token Name:** tether
 * **Token Symbol:** USDT
-* **Contract Address:** `0x1A89439bc2fb9A79783960707e3dDdF320679e15`
-- **Explorer:** [View Contract on TRONSCAN](https://tronscan.org/#/contract/0x1A89439bc2fb9A79783960707e3dDdF320679e15)
+* **Contract Address:** `TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2`
+- **Explorer:** [View Contract on TRONSCAN](https://tronscan.org/#/contract/TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2)
 ## Contract
 
 The smart contract address is provided above for public reference and verification.
@@ -32,13 +32,13 @@ MUSDT is a blockchain-based token project focused on providing publicly accessib
 
 The MUSDT smart contract address:
 
-`0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+`TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2`
 
 The contract address can be independently checked on the relevant blockchain explorer.
 ---
 ## Contract Address
 
-`0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+`TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2`
 
 For contract details and on-chain information, please refer to the blockchain explorer.
 ---
@@ -48,13 +48,13 @@ For contract details and on-chain information, please refer to the blockchain ex
 - **Token Symbol:** USDT
 - **Decimals:** 6
 - **Network:** TRON Mainnet
-- **Contract Address:** `0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+- **Contract Address:** `TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2`
 
 ## Contract Verification
 
 The MUSDT smart contract address:
 
-`0x1A89439bc2fb9A79783960707e3dDdF320679e15`
+`TCPX1KhJymR1ceiYBPevbyMQocw7k73wB2`
 
 The contract address can be independently checked on the TRON blockchain explorer.
 
